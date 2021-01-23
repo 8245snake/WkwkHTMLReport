@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WkwkReportClient;
 
 namespace TestClientApp
 {
@@ -18,7 +19,9 @@ namespace TestClientApp
 
         private void btnExec_Click(object sender, EventArgs e)
         {
-
+            PrintExecuter p = new PrintExecuter();
+            string path = @"C:\Users\USER\Desktop\test.pdf";
+            p.PrintPDF(path);
         }
     }
 }
