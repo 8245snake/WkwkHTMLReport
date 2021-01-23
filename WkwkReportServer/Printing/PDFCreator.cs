@@ -14,12 +14,24 @@ namespace WkwkReportServer.Printing
     public class PDFCreator
     {
         private static bool _IsCefInitialized = false;
+        private static string ExeDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 
         private string _CachePath;
 
+        /// <summary>
+        /// PDF作成用インスタンスを作る
+        /// </summary>
+        /// <param name="cachePath">キャッシュファイルの保存先（省略時は実行ファイルと同階層のcacheフォルダ）</param>
         public PDFCreator(string cachePath = null)
         {
-            _CachePath = cachePath;
+            if (string.IsNullOrWhiteSpace(cachePath))
+            {
+                _CachePath = Path.Combine(ExeDirectory, "cache");
+            }
+            else
+            {
+                _CachePath = cachePath;
+            }
         }
 
 
@@ -70,11 +82,6 @@ namespace WkwkReportServer.Printing
                 InitCef();
             }
             return await PrintToPdfAsync(url, outputPath);
-        }
-
-        public bool CreatePDF(string url, string outputPath)
-        {
-            return CreatePDFAsync(url, outputPath).Result;
         }
 
         /// <summary>

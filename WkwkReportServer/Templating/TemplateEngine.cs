@@ -15,9 +15,15 @@ namespace WkwkReportServer.Templating
         static string ConfigFileName = "TemplateConfig.xml";
         static string ExeDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 
-
+        /// <summary>
+        /// 帳票ごとの設定リスト
+        /// </summary>
         public ReportPatternList PatternList { get => _PatternList; set => _PatternList = value; }
 
+        /// <summary>
+        /// TemplateConfig.xmlを読み込む
+        /// </summary>
+        /// <returns>帳票ごとの設定リスト</returns>
         public static ReportPatternList LoadPatternList()
         {
             ReportPatternList patternList = new ReportPatternList();
@@ -45,6 +51,12 @@ namespace WkwkReportServer.Templating
             return patternList;
         }
 
+        /// <summary>
+        /// テンプレートエンジンを実行しデータXMLをバインディングしたHTMLファイルを生成する
+        /// </summary>
+        /// <param name="dataXmlPath">データXMLのパス</param>
+        /// <param name="reportID">帳票識別子</param>
+        /// <returns>生成したHTMLファイルのパス</returns>
         public string TemplateCompile(string dataXmlPath, string reportID)
         {
             // レイアウトファイルを取得する
