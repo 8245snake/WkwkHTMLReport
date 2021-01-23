@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WkwkReportClient
 {
-    public class Class1
+    public class RequestManager
     {
     }
 }

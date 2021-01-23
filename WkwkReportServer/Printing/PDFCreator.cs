@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using CefSharp;
 using CefSharp.OffScreen;
 
-namespace WkwkReportServer
+namespace WkwkReportServer.Printing
 {
     public class PDFCreator
     {

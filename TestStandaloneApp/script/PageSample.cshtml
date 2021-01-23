@@ -1,0 +1,58 @@
+﻿@using System;
+@using WkwkReportServer.Templating;
+@using RazorEngine;
+@using RazorEngine.Templating;
+@inherits TemplateBase<DataXmlModel>
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>タイトル</title>
+       
+    </head>
+    <body>
+        <h1>@Model.Text("/Root/Base/Name")</h1>
+
+        @Model.Text("/Root/Status/Code")<br />
+        @Model.Text("/Root/Status/Name")<br />
+
+        <h2>ループ</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Description</td>
+                </tr>
+            </thead>
+            @foreach (DataXmlNode node in Model.Nodes("/Root/List/Item"))
+            {
+                <tr>
+                    <td>@node.Text("ID")</td>
+                    <td>@node.Text("Description")</td>
+                </tr>
+            }
+        </table>
+
+        <h2>属性取得</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>value</td>
+                </tr>
+            </thead>
+            @foreach (DataXmlNode node in Model.Nodes("/Root/Property[@category='food']"))
+            {
+                <tr>
+                    <td>@node.Text("@id")</td>
+                    <td>@node.Text("@value")</td>
+                </tr>
+            }
+        </table>
+
+        <h2>外部ファイル呼び出し</h2>
+        @Include("_part1")
+
+    </body>
+    </html>
+
+

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Base>
+    <Name>お名前</Name>
+    <Birth>20060102150405</Birth>
+    <Address>東京都新宿区XXX-XXX</Address>
+    <Weight>62.5</Weight>
+    <Stat>167.3</Stat>
+  </Base>
+  <Status>
+    <Code>019292</Code>
+    <Name>すごい</Name>
+  </Status>
+  <!-- Itemの繰り返し項目 -->
+  <List>
+    <Item>
+      <ID>000001</ID>
+      <Description>あいうえお</Description>
+    </Item>
+    <Item>
+      <ID>000002</ID>
+      <Description>かきくけこ</Description>
+    </Item>
+    <Item>
+      <ID>000003</ID>
+      <Description>さしすせそ</Description>
+    </Item>
+  </List>
+  <!-- 属性で区別 -->
+  <Property category="food" id ="1" value="ごはん"/>
+  <Property category="food" id ="2" value="ハンバーグ"/>
+  <Property category="drink" id ="1" value="お茶"/>
+  <Property category="drink" id ="2" value="コーヒー"/>
+</Root>

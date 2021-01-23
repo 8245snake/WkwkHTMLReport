@@ -1,0 +1,18 @@
+﻿@using System;
+@using WkwkReportServer.Templating;
+@using RazorEngine;
+@using RazorEngine.Templating;
+@inherits TemplateBase<DataXmlModel>
+
+
+
+    <table border="1">
+        <tr>
+            <td>@Model.Text("/Root/Base/Birth")</td>
+            <td>@Model.Text("/Root/Base/Address")</td>
+        </tr>
+        <tr>
+            <td>@Model.Text("/Root/Base/Weight")</td>
+            <td>@Model.Text("/Root/Base/Stat")</td>
+        </tr>
+    </table>

@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataXmlModel.cs" />
-    <Compile Include="DataXmlNode.cs" />
-    <Compile Include="PDFCreator.cs" />
+    <Compile Include="Templating\DataXmlModel.cs" />
+    <Compile Include="Templating\DataXmlNode.cs" />
+    <Compile Include="Printing\PDFCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templating\ReportPattern.cs" />
+    <Compile Include="Templating\TemplateEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CefSharp.OffScreen">
@@ -57,6 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TemplateConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

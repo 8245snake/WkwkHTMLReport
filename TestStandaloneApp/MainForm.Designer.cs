@@ -1,4 +1,4 @@
-﻿namespace TestClientApp
+﻿namespace TestStandaloneApp
 {
     partial class MainForm
     {
@@ -33,22 +33,25 @@
             // 
             // btnExec
             // 
-            this.btnExec.Location = new System.Drawing.Point(43, 87);
+            this.btnExec.Location = new System.Drawing.Point(32, 37);
+            this.btnExec.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExec.Name = "btnExec";
-            this.btnExec.Size = new System.Drawing.Size(75, 23);
+            this.btnExec.Size = new System.Drawing.Size(99, 44);
             this.btnExec.TabIndex = 0;
-            this.btnExec.Text = "button1";
+            this.btnExec.Text = "実行";
             this.btnExec.UseVisualStyleBackColor = true;
             this.btnExec.Click += new System.EventHandler(this.btnExec_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 162);
+            this.ClientSize = new System.Drawing.Size(505, 255);
             this.Controls.Add(this.btnExec);
+            this.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
-            this.Text = "テストアプリ";
+            this.Text = "スタンドアロンApp";
             this.ResumeLayout(false);
 
         }

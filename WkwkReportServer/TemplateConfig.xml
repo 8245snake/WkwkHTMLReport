@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <Report>
+    <!-- 帳票識別子 -->
+    <ID>sample</ID>
+    <!-- メインとなるテンプレートファイルのパス（絶対パス、もしくは実行ファイルからの相対パス） -->
+    <TemplatePath>.\script\PageSample.cshtml</TemplatePath>
+    <!-- 部分ビューとなるテンプレートのパス（Pathの繰り返し） -->
+    <Partial>
+      <Path>.\script\_part1.cshtml</Path>
+    </Partial>
+  </Report>
+</Config>
