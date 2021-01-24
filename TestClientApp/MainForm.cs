@@ -21,7 +21,7 @@ namespace TestClientApp
         {
             PrintExecuter p = new PrintExecuter();
             string path = @"C:\Users\USER\Desktop\test.pdf";
-            p.PrintPDF(path);
+            p.PrintPDF(path, 1);
         }
     }
 }
