@@ -15,9 +15,16 @@ namespace WkwkReportServer.Templating
         private XmlDocument _XmlDocument = new XmlDocument();
 
 
-        public DataXmlModel(string path)
+        public DataXmlModel(string xmlPathOrText, bool isXmlFile = true)
         {
-            _XmlDocument.Load(path);
+            if (isXmlFile)
+            {
+                _XmlDocument.Load(xmlPathOrText);
+            }
+            else
+            {
+                _XmlDocument.LoadXml(xmlPathOrText);
+            }
         }
 
         /// <summary>

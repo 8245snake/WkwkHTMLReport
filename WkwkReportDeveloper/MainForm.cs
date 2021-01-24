@@ -33,6 +33,11 @@ namespace WkwkReportDeveloper
             splitContainer1.Panel2.KeyDown += MainForm_KeyDown;
             browser.KeyDown += MainForm_KeyDown;
 
+            InitComboBox();
+        }
+
+        private void InitComboBox()
+        {
             // コンボボックス初期化
             foreach (var pattern in _ReportPatternList.Items)
             {
@@ -44,7 +49,6 @@ namespace WkwkReportDeveloper
             {
                 combReportID.SelectedIndex = 0;
             }
-
         }
 
         private void btnReload_Click(object sender, EventArgs e)
@@ -58,7 +62,7 @@ namespace WkwkReportDeveloper
             {
                 string reportID = combReportID.Text;
                 string dataPath = txtDataXML.Text.Trim(new char[] { '"' });
-                var uri = ReportGenerator.CreatePage(reportID, dataPath);
+                var uri = ReportGenerator.CreatePage(txtDataXMLEdit.Text, txtLayoutEdit.Text, "");
                 browser.Load(uri);
             }
             catch(Exception e)
@@ -115,6 +119,8 @@ namespace WkwkReportDeveloper
 
         private void btnSettingReload_Click(object sender, EventArgs e)
         {
+            _ReportPatternList = TemplateEngine.LoadPatternList();
+            InitComboBox();
             ReloadSetting();
         }
 

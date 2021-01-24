@@ -85,6 +85,32 @@ namespace WkwkReportServer.Templating
         }
 
         /// <summary>
+        /// テンプレートエンジンを実行しデータXMLをバインディングしたHTMLファイルを生成する
+        /// </summary>
+        /// <param name="dataText">データXMLの中身</param>
+        /// <param name="templateText">テンプレートファイルの中身</param>
+        /// <param name="partialTemplateTexts">部分ビューの中身</param>
+        /// <returns>生成したHTMLファイルのパス</returns>
+        public string TemplateCompile(string dataText, string templateText, params string[] partialTemplateTexts)
+        {
+            // テンプレートエンジンの実行
+            DataXmlModel Model = new DataXmlModel(dataText, false);
+            var service = Engine.Razor;
+            for (int i = 0; i < partialTemplateTexts.Length; i++)
+            {
+                service.AddTemplate($"_{i+1}", partialTemplateTexts[i]);
+            }
+            string createdTime = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            string resultText = service.RunCompile(templateText, createdTime, Model.GetType(), Model);
+
+            // ファイル出力
+            string outputPath = Path.Combine(ExeDirectory, $"{createdTime}.html");
+            File.WriteAllText(outputPath, resultText);
+
+            return outputPath;
+        }
+
+        /// <summary>
         /// パスを正規化する
         /// </summary>
         /// <param name="path">パス（絶対パス/相対パス）</param>

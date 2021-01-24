@@ -59,5 +59,20 @@ namespace WkwkReportStandalone
             Uri uri = new Uri(path);
             return uri.AbsoluteUri;
         }
+
+        /// <summary>
+        /// 指定した帳票識別子とデータXMLからページを生成しURLを返す
+        /// </summary>
+        /// <param name="dataText">データXMLの中身</param>
+        /// <param name="templateText">テンプレートファイルの中身</param>
+        /// <param name="partialTemplateTexts">部分ビューの中身</param>
+        /// <returns>生成したHTMLファイルのパス</returns>
+        public static string CreatePage(string dataText, string templateText, params string[] partialTemplateTexts)
+        {
+            TemplateEngine engine = new TemplateEngine();
+            string path = engine.TemplateCompile(dataText, templateText, partialTemplateTexts);
+            Uri uri = new Uri(path);
+            return uri.AbsoluteUri;
+        }
     }
 }
