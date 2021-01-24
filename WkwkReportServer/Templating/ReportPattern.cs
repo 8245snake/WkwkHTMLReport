@@ -35,6 +35,10 @@ namespace WkwkReportServer.Templating
     {
         private List<ReportPattern> _List { set; get; } = new List<ReportPattern>();
 
+        public IEnumerable<ReportPattern> Items { get => _List; }
+
+        public int Count { get => _List.Count; }
+
         public ReportPattern this[string reportID]
         {
             get => _List.Where(pattern => pattern.ReportID.ToUpper() == reportID.ToUpper()).FirstOrDefault();
@@ -44,5 +48,7 @@ namespace WkwkReportServer.Templating
         {
             _List.Add(pattern);
         }
+
+
     }
 }

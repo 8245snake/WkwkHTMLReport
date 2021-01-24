@@ -4,12 +4,26 @@
 @using RazorEngine.Templating;
 @inherits TemplateBase<DataXmlModel>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>タイトル</title>
-       
-    </head>
-    <body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Multiple Sheets</title>
+
+    <!-- Normalize or reset CSS with your favorite library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+    <!-- Load paper.css for happy printing -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
+
+    <!-- Set page size here: A5, A4 or A3 -->
+    <!-- Set also "landscape" if you need -->
+    <title>タイトル</title>
+</head>
+<body class="A4">
+    <section class="sheet padding-10mm">
+
+        <!-- Write HTML just like a web page -->
+        <article>This is the first sheet.</article>
         <h1>@Model.Text("/Root/Base/Name")</h1>
 
         @Model.Text("/Root/Status/Code")<br />
@@ -31,7 +45,11 @@
                 </tr>
             }
         </table>
+    </section>
 
+    <section class="sheet padding-10mm">
+        <!-- Write HTML just like a web page -->
+        <article>This is the second sheet.</article>
         <h2>属性取得</h2>
         <table border="1">
             <thead>
@@ -51,8 +69,12 @@
 
         <h2>外部ファイル呼び出し</h2>
         @Include("_part1")
+    </section>
 
-    </body>
-    </html>
+
+</body>
+
+
+</html>
 
 
