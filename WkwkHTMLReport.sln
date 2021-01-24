@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClientApp", "TestClient
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WkwkReportServer", "WkwkReportServer\WkwkReportServer.csproj", "{CBD55003-6C31-4ABA-848D-52B7F2EF176E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestStandaloneApp", "TestStandaloneApp\TestStandaloneApp.csproj", "{AD5608C4-65A2-4B1A-A901-47D7E979D0FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WkwkReportDeveloper", "WkwkReportDeveloper\WkwkReportDeveloper.csproj", "{AA76AA2B-20DA-4102-BF09-1F0391931C2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{CBD55003-6C31-4ABA-848D-52B7F2EF176E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBD55003-6C31-4ABA-848D-52B7F2EF176E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBD55003-6C31-4ABA-848D-52B7F2EF176E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD5608C4-65A2-4B1A-A901-47D7E979D0FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD5608C4-65A2-4B1A-A901-47D7E979D0FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD5608C4-65A2-4B1A-A901-47D7E979D0FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD5608C4-65A2-4B1A-A901-47D7E979D0FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA76AA2B-20DA-4102-BF09-1F0391931C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA76AA2B-20DA-4102-BF09-1F0391931C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA76AA2B-20DA-4102-BF09-1F0391931C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA76AA2B-20DA-4102-BF09-1F0391931C2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

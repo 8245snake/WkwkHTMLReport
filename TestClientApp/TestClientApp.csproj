@@ -80,10 +80,6 @@
       <Project>{4580b168-7b0a-4877-88f0-2604cf9331ee}</Project>
       <Name>WkwkReportClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WkwkReportServer\WkwkReportServer.csproj">
-      <Project>{cbd55003-6c31-4aba-848d-52b7f2ef176e}</Project>
-      <Name>WkwkReportServer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
