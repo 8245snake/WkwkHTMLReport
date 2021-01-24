@@ -7,14 +7,13 @@ using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WkwkReportServer.Printing;
-using WkwkReportServer.Templating;
+using WkwkReportStandalone;
 
 namespace TestStandaloneApp
 {
     public partial class MainForm : Form
     {
-        private static string dataPath = TemplateEngine.CanonicalizePath(@"script\DataXmlSample.xml");
+        private static string dataPath = ReportGenerator.CanonicalizePath(@"script\DataXmlSample.xml");
 
         public MainForm()
         {
@@ -28,15 +27,12 @@ namespace TestStandaloneApp
 
         private async void CreatePDF(string reportID, string pdfPath)
         {
-            TemplateEngine engine = new TemplateEngine();
-            string path = engine.TemplateCompile(dataPath, reportID);
-            PDFCreator creator = new PDFCreator();
-            Uri uri = new Uri(path);
-            var success = await creator.CreatePDFAsync(uri.AbsoluteUri, pdfPath);
+            bool success = await ReportGenerator.CreatePDFAsync(reportID, dataPath, pdfPath);
             if (success)
             {
-                MessageBox.Show($"PDFを作成しました\r\n{pdfPath}");
+                ReportGenerator.PrintPDF(pdfPath, showDialog: true);
             }
+
         }
     }
 }

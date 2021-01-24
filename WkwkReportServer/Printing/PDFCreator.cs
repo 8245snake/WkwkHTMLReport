@@ -72,9 +72,9 @@ namespace WkwkReportServer.Printing
         /// <summary>
         /// PDFファイルを出力する
         /// </summary>
-        /// <param name="url"></param>
-        /// <param name="outputPath"></param>
-        /// <returns></returns>
+        /// <param name="url">印刷対象のURL</param>
+        /// <param name="outputPath">PDFファイルの出力先パス</param>
+        /// <returns>成功したか</returns>
         public async Task<bool> CreatePDFAsync(string url, string outputPath)
         {
             if (_IsCefInitialized == false)
@@ -82,6 +82,21 @@ namespace WkwkReportServer.Printing
                 InitCef();
             }
             return await PrintToPdfAsync(url, outputPath);
+        }
+
+        public async void PrintDialog(string url)
+        {
+            if (_IsCefInitialized == false)
+            {
+                InitCef();
+            }
+
+            var browser = CreateBrowser(url, _CachePath);
+            // ページ読み込みが終了するまで待機
+            await LoadPageAsync(browser);
+            // PDF保存
+            browser.Print();
+            browser.Dispose();
         }
 
         /// <summary>

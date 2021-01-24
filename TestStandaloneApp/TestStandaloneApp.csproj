@@ -86,15 +86,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="script\DataXmlSample.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WkwkReportClient\WkwkReportClient.csproj">
+      <Project>{4580b168-7b0a-4877-88f0-2604cf9331ee}</Project>
+      <Name>WkwkReportClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WkwkReportServer\WkwkReportServer.csproj">
       <Project>{cbd55003-6c31-4aba-848d-52b7f2ef176e}</Project>
       <Name>WkwkReportServer</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="script\DataXmlSample.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <ProjectReference Include="..\WkwkReportStandalone\WkwkReportStandalone.csproj">
+      <Project>{18bb33d2-4a17-4e00-8f5b-8d652c5b85f1}</Project>
+      <Name>WkwkReportStandalone</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

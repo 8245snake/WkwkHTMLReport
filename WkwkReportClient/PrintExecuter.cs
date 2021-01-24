@@ -18,13 +18,19 @@ namespace WkwkReportClient
         /// <param name="inputFilePath">PDFのパス</param>
         /// <param name="printNumber">印刷枚数</param>
         /// <param name="printerName">プリンタ名</param>
-        public void PrintPDF(string inputFilePath, int printNumber = 1, string printerName = null)
+        /// <param name="showDialog">プリンタ選択ダイアログを表示するか否か</param>
+        public void PrintPDF(string inputFilePath, int printNumber = 1, string printerName = null, bool showDialog = false)
         {
-            if (string.IsNullOrWhiteSpace(printerName))
+            if (string.IsNullOrWhiteSpace(printerName) && !showDialog)
             {
-                // プリンタ名の指定がなければデフォルトプリンタを使用
+                // プリンタ名の指定がなければデフォルトプリンタを使用（ダイアログ非表示のとき）
                 var pd = new System.Drawing.Printing.PrintDocument();
                 printerName = pd.PrinterSettings.PrinterName;
+            }
+            if (showDialog)
+            {
+                // ダイアログを表示するにはプリンタ名が空である必要がある
+                printerName = "";
             }
 
             // 指定枚数分だけ実行
