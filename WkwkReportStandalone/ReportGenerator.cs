@@ -24,6 +24,20 @@ namespace WkwkReportStandalone
         }
 
         /// <summary>
+        /// PDFファイルを出力する
+        /// </summary>
+        /// <param name="dataText">データXMLの中身</param>
+        /// <param name="templateText">テンプレートファイルの中身</param>
+        /// <param name="outputPath">PDFファイルの出力先パス</param>
+        /// <param name="partialTemplateTexts">部分ビューの中身</param>
+        /// <returns>成功したか</returns>
+        public static async Task<bool> CreatePDFAsync(string dataText, string templateText, string outputPath,  params string[] partialTemplateTexts)
+        {
+            PDFCreator creator = new PDFCreator();
+            return await creator.CreatePDFAsync(CreatePage(dataText, templateText, partialTemplateTexts), outputPath);
+        }
+
+        /// <summary>
         /// 指定したプリンタでPDFを印刷する
         /// </summary>
         /// <param name="inputFilePath">PDFのパス</param>
@@ -61,7 +75,7 @@ namespace WkwkReportStandalone
         }
 
         /// <summary>
-        /// 指定した帳票識別子とデータXMLからページを生成しURLを返す
+        /// テンプレートとデータXMLからページを生成しURLを返す
         /// </summary>
         /// <param name="dataText">データXMLの中身</param>
         /// <param name="templateText">テンプレートファイルの中身</param>

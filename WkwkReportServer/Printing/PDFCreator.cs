@@ -13,7 +13,7 @@ namespace WkwkReportServer.Printing
 {
     public class PDFCreator
     {
-        private static bool _IsCefInitialized = false;
+        public static bool IsCefInitialized = false;
         private static string ExeDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 
         private string _CachePath;
@@ -41,13 +41,13 @@ namespace WkwkReportServer.Printing
         /// <remarks>プログラムの開始時に呼ぶこと</remarks>
         public static void InitCef()
         {
-            if (_IsCefInitialized == false)
+            if (IsCefInitialized == false)
             {
                 CefSettings settings = new CefSettings();
                 settings.Locale = "ja";
                 settings.AcceptLanguageList = "ja-JP";
                 Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: null);
-                _IsCefInitialized = true;
+                IsCefInitialized = true;
             }
         }
 
@@ -77,7 +77,7 @@ namespace WkwkReportServer.Printing
         /// <returns>成功したか</returns>
         public async Task<bool> CreatePDFAsync(string url, string outputPath)
         {
-            if (_IsCefInitialized == false)
+            if (IsCefInitialized == false)
             {
                 InitCef();
             }
@@ -86,7 +86,7 @@ namespace WkwkReportServer.Printing
 
         public async void PrintDialog(string url)
         {
-            if (_IsCefInitialized == false)
+            if (IsCefInitialized == false)
             {
                 InitCef();
             }

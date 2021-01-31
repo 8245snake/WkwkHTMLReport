@@ -60,14 +60,21 @@ namespace WkwkReportDeveloper
         {
             try
             {
-                string reportID = combReportID.Text;
-                string dataPath = txtDataXML.Text.Trim(new char[] { '"' });
                 var uri = ReportGenerator.CreatePage(txtDataXMLEdit.Text, txtLayoutEdit.Text, "");
                 browser.Load(uri);
             }
             catch(Exception e)
             {
                 if (showErrorMessage) { MessageBox.Show(e.Message); }
+            }
+        }
+
+        private async void btnPDF_Click(object sender, EventArgs e)
+        {
+            bool success = await ReportGenerator.CreatePDFAsync(txtDataXMLEdit.Text, txtLayoutEdit.Text, "sample.pdf", "");
+            if (success)
+            {
+                MessageBox.Show("PDFを作成しました");
             }
 
         }
@@ -201,5 +208,7 @@ namespace WkwkReportDeveloper
                 txtDataXML.Text = filePath;
             }
         }
+
+
     }
 }

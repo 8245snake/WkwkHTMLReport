@@ -55,6 +55,7 @@
             this.combReportID = new System.Windows.Forms.ComboBox();
             this.linkLayoutXML = new System.Windows.Forms.LinkLabel();
             this.linkDataXML = new System.Windows.Forms.LinkLabel();
+            this.btnPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,6 +94,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnPDF);
             this.splitContainer1.Panel2.Controls.Add(this.btnPrint);
             this.splitContainer1.Panel2.Controls.Add(this.btnDevTool);
             this.splitContainer1.Panel2.Controls.Add(this.btnReload);
@@ -374,6 +376,18 @@
             this.linkDataXML.TabIndex = 3;
             this.linkDataXML.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkClicked);
             // 
+            // 
+            // btnPDF
+            // 
+            this.btnPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPDF.Location = new System.Drawing.Point(310, 23);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(75, 23);
+            this.btnPDF.TabIndex = 6;
+            this.btnPDF.Text = "PDF";
+            this.btnPDF.UseVisualStyleBackColor = true;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -433,6 +447,7 @@
         private System.Windows.Forms.ComboBox combReportID;
         private System.Windows.Forms.LinkLabel linkLayoutXML;
         private System.Windows.Forms.LinkLabel linkDataXML;
+        private System.Windows.Forms.Button btnPDF;
     }
 }
 
